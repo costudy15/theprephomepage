@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>더프렙 THE PREP | 부산 사직동 프리미엄 관리형 스터디카페</title>
+<meta name="description" content="더프렙은 AI 학습관리 시스템과 전문 코디네이터가 함께하는 부산 동래구 사직동의 프리미엄 관리형 스터디카페입니다. 중·고등학생부터 재수생까지, 당신의 공부가 완성되는 공간." />
+<meta property="og:title" content="더프렙 THE PREP | 프리미엄 관리형 스터디카페" />
+<meta property="og:description" content="당신의 공부가 완성되는 공간. AI와 전문 코디네이터가 함께하는 체계적인 학습 관리." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="icon" type="image/png" href="images/favicon.png" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+<style>
+  :root{
+    --charcoal:#15161a;
+    --charcoal-2:#1d1f25;
+    --charcoal-soft:#242730;
+    --gold:#c2a15c;
+    --gold-soft:#d8bd86;
+    --ink:#23252b;
+    --grey:#6b6f78;
+    --line:#e7e6e2;
+    --paper:#faf9f6;
+    --white:#ffffff;
+    --maxw:1180px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{
+    font-family:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    color:var(--ink);background:var(--paper);line-height:1.7;
+    -webkit-font-smoothing:antialiased;letter-spacing:-.01em;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{
+    font-size:.78rem;font-weight:700;letter-spacing:.28em;color:var(--gold);
+    text-transform:uppercase;margin-bottom:18px;
+  }
+  h2.section-title{
+    font-size:clamp(1.7rem,3.6vw,2.55rem);font-weight:800;line-height:1.28;
+    color:var(--charcoal);letter-spacing:-.03em;
+  }
+  .section-title .accent{color:var(--gold)}
+  section{padding:clamp(70px,9vw,120px) 0}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(21,22,26,.72);backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.08);transition:background .3s var(--ease);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:11px;color:#fff}
+  .brand .mark{
+    width:34px;height:34px;border:1.5px solid var(--gold);border-radius:7px;
+    display:grid;place-items:center;font-weight:800;font-size:.82rem;color:var(--gold);
+    letter-spacing:.02em;
+  }
+  .brand .mark-img{height:38px;width:auto;display:block}
+  .brand b{font-weight:800;letter-spacing:.16em;font-size:1.02rem}
+  .brand span{font-size:.66rem;color:var(--gold-soft);letter-spacing:.3em;display:block;margin-top:1px}
+  .nav-links{display:flex;align-items:center;gap:34px}
+  .nav-links a{color:rgba(255,255,255,.82);font-size:.92rem;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--gold-soft)}
+  .nav-cta{
+    background:var(--gold);color:#1a1206 !important;padding:9px 18px;border-radius:30px;
+    font-weight:700 !important;font-size:.88rem !important;transition:transform .2s,background .2s;
+  }
+  .nav-cta:hover{background:var(--gold-soft);transform:translateY(-1px)}
+  .nav-portal{
+    border:1px solid rgba(194,161,92,.55);color:var(--gold-soft) !important;
+    padding:8px 16px;border-radius:30px;font-size:.86rem !important;font-weight:600 !important;
+    transition:background .2s,color .2s;
+  }
+  .nav-portal:hover{background:rgba(194,161,92,.14);color:var(--gold) !important}
+  .menu-btn{display:none;background:none;border:0;cursor:pointer;width:30px;height:30px}
+  .menu-btn span{display:block;height:2px;background:#fff;margin:6px 0;transition:.3s}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:center;
+    color:#fff;overflow:hidden;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.42) saturate(.9)}
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(110deg,rgba(15,16,20,.92) 0%,rgba(15,16,20,.68) 45%,rgba(15,16,20,.4) 100%);
+  }
+  .hero-inner{position:relative;z-index:2;width:100%}
+  .hero .eyebrow{margin-bottom:22px}
+  .hero h1{
+    font-size:clamp(2.3rem,6vw,4.3rem);font-weight:800;line-height:1.16;letter-spacing:-.04em;
+  }
+  .hero h1 .gd{color:var(--gold)}
+  .hero p.lead{
+    margin-top:26px;max-width:560px;font-size:clamp(1rem,2vw,1.18rem);
+    color:rgba(255,255,255,.84);font-weight:400;line-height:1.8;
+  }
+  .hero-actions{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:34px;
+    font-weight:700;font-size:1rem;transition:transform .2s var(--ease),box-shadow .2s,background .2s;
+  }
+  .btn-gold{background:var(--gold);color:#1a1206;box-shadow:0 10px 30px -10px rgba(194,161,92,.6)}
+  .btn-gold:hover{transform:translateY(-2px);background:var(--gold-soft)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.4);color:#fff}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft);transform:translateY(-2px)}
+  .hero-stats{
+    margin-top:64px;display:flex;gap:46px;flex-wrap:wrap;
+    border-top:1px solid rgba(255,255,255,.14);padding-top:30px;max-width:620px;
+  }
+  .hero-stats .stat b{display:block;font-size:1.9rem;font-weight:800;color:var(--gold-soft);line-height:1}
+  .hero-stats .stat>span{font-size:.84rem;color:rgba(255,255,255,.66);margin-top:7px;display:block}
+  .hero-stats .stat b .count{font-size:inherit;color:inherit}
+
+  /* ---------- Why ---------- */
+  .why{background:var(--white)}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .why-copy .section-title{margin-bottom:26px}
+  .why-copy p{color:var(--grey);font-size:1.04rem;margin-bottom:18px}
+  .why-copy p strong{color:var(--charcoal);font-weight:700}
+  .why-visual{position:relative}
+  .why-visual img{border-radius:16px;width:100%;aspect-ratio:4/3;object-fit:cover;box-shadow:0 30px 60px -30px rgba(0,0,0,.4)}
+  .why-visual .badge{
+    position:absolute;bottom:-22px;left:-22px;background:var(--charcoal);color:#fff;
+    padding:20px 26px;border-radius:14px;box-shadow:0 20px 40px -16px rgba(0,0,0,.5);
+    border-left:3px solid var(--gold);
+  }
+  .why-visual .badge b{color:var(--gold);font-size:1.5rem;display:block;font-weight:800}
+  .why-visual .badge span{font-size:.82rem;color:rgba(255,255,255,.75)}
+
+  /* ---------- System ---------- */
+  .system{background:var(--charcoal);color:#fff;position:relative}
+  .system .head{text-align:center;max-width:680px;margin:0 auto 60px}
+  .system .section-title{color:#fff}
+  .system .head p{color:rgba(255,255,255,.66);margin-top:18px;font-size:1.04rem}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{
+    background:linear-gradient(160deg,var(--charcoal-2),var(--charcoal-soft));
+    border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:34px 30px;
+    transition:transform .35s var(--ease),border-color .35s;
+  }
+  .card:hover{transform:translateY(-6px);border-color:rgba(194,161,92,.5)}
+  .card .ic{
+    width:52px;height:52px;border-radius:13px;background:rgba(194,161,92,.13);
+    display:grid;place-items:center;margin-bottom:22px;color:var(--gold);
+  }
+  .card .ic svg{width:26px;height:26px}
+  .card h3{font-size:1.18rem;font-weight:700;margin-bottom:11px}
+  .card p{color:rgba(255,255,255,.62);font-size:.95rem;line-height:1.7}
+
+  /* ---------- Facilities ---------- */
+  .fac{background:var(--paper)}
+  .fac .head{margin-bottom:48px}
+  .fac .head p{color:var(--grey);margin-top:16px;font-size:1.04rem;max-width:560px}
+  .gallery{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px;
+  }
+  .gtile{
+    position:relative;overflow:hidden;border-radius:13px;cursor:pointer;background:#ddd;
+  }
+  .gtile img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+  .gtile:hover img{transform:scale(1.07)}
+  .gtile .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:30px 18px 16px;
+    background:linear-gradient(transparent,rgba(15,16,20,.82));
+    color:#fff;font-weight:600;font-size:.96rem;
+    opacity:0;transform:translateY(8px);transition:.3s var(--ease);
+  }
+  .gtile:hover .cap{opacity:1;transform:none}
+  .gtile.wide{grid-column:span 2}
+  .gtile.tall{grid-row:span 2}
+
+  /* ---------- Info ---------- */
+  .info{background:var(--white)}
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
+  .info-list{display:flex;flex-direction:column;gap:4px}
+  .irow{display:flex;gap:20px;padding:22px 4px;border-bottom:1px solid var(--line);align-items:flex-start}
+  .irow:last-child{border-bottom:0}
+  .irow .ik{
+    flex:0 0 110px;font-weight:700;color:var(--charcoal);font-size:1rem;
+    display:flex;align-items:center;gap:9px;
+  }
+  .irow .ik svg{width:19px;height:19px;color:var(--gold)}
+  .irow .iv{color:var(--ink);font-size:1rem}
+  .irow .iv small{display:block;color:var(--grey);font-size:.86rem;margin-top:3px}
+  .map-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:34px;
+  }
+  .map-card h3{font-size:1.25rem;font-weight:800;color:var(--charcoal);margin-bottom:8px}
+  .map-card .addr{color:var(--grey);margin-bottom:24px}
+  .map-embed{border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/11;background:#eee}
+  .map-embed iframe{width:100%;height:100%;border:0}
+
+  /* ---------- Contact / CTA ---------- */
+  .cta{
+    background:var(--charcoal);color:#fff;text-align:center;position:relative;overflow:hidden;
+  }
+  .cta::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 0%,rgba(194,161,92,.16),transparent 60%);
+  }
+  .cta-inner{position:relative;z-index:2;max-width:640px;margin:0 auto}
+  .cta .section-title{color:#fff;margin-bottom:18px}
+  .cta p{color:rgba(255,255,255,.72);font-size:1.08rem;margin-bottom:36px}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .phone-big{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--gold);letter-spacing:.01em;margin-bottom:30px}
+  .phone-big span{font-size:.9rem;color:rgba(255,255,255,.6);font-weight:500;letter-spacing:.2em;display:block;margin-bottom:8px}
+
+  /* ---------- Footer ---------- */
+  footer{background:#0e0f12;color:rgba(255,255,255,.55);padding:48px 0 40px}
+  .foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  .foot .brand b{color:#fff}
+  .foot-info{font-size:.88rem;line-height:1.9}
+  .foot-info a:hover{color:var(--gold-soft)}
+  .foot-copy{margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);font-size:.8rem;color:rgba(255,255,255,.38)}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Hero entrance & header scroll ---------- */
+  header .nav{transition:height .32s var(--ease)}
+  header.scrolled{background:rgba(21,22,26,.94);box-shadow:0 6px 24px -16px rgba(0,0,0,.6)}
+  header.scrolled .nav{height:56px}
+  .h-rise{opacity:0;transform:translateY(24px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+  .hero.ready .h-rise{opacity:1;transform:none}
+
+  /* ---------- Lightbox ---------- */
+  .lightbox{
+    position:fixed;inset:0;background:rgba(10,11,13,.94);z-index:200;
+    display:none;align-items:center;justify-content:center;padding:30px;
+  }
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:92vw;max-height:88vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .lightbox .close{position:absolute;top:24px;right:30px;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;background:none;border:0}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:1024px){
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .gallery{grid-auto-rows:185px}
+    .why-grid{gap:44px}
+  }
+  @media(max-width:900px){
+    .why-grid,.info-grid{grid-template-columns:1fr;gap:40px}
+    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+    .why-visual .badge{left:0}
+  }
+  @media(max-width:680px){
+    .nav-links{
+      position:fixed;top:68px;left:0;right:0;background:var(--charcoal);
+      flex-direction:column;align-items:stretch;gap:0;padding:8px 0;
+      transform:translateY(-130%);transition:transform .35s var(--ease);
+      border-bottom:1px solid rgba(255,255,255,.1);
+    }
+    .nav-links.open{transform:none}
+    .nav-links a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-portal{border:0 !important;border-radius:0 !important;border-bottom:1px solid rgba(255,255,255,.06) !important;font-size:.92rem !important}
+    .nav-portal:hover{background:transparent}
+    .nav-cta{margin:10px 24px;text-align:center}
+    .menu-btn{display:block}
+    header.scrolled .nav{height:68px} /* keep header height stable on mobile so dropdown aligns */
+    .cards{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr;grid-auto-rows:230px}
+    .gtile.wide,.gtile.tall{grid-column:auto;grid-row:auto}
+    .gtile .cap{opacity:1;transform:none} /* captions always visible on touch */
+    .hero{min-height:auto;padding:120px 0 72px}
+    .hero-stats{gap:26px;padding-top:24px}
+    .sys-cta>div{flex-direction:column;align-items:stretch}
+    .sys-cta .btn{width:100%;justify-content:center}
+  }
+  @media(max-width:520px){
+    .wrap{padding:0 18px}
+    section{padding:56px 0}
+    .hero-actions{flex-direction:column;align-items:stretch}
+    .hero-actions .btn{width:100%;justify-content:center}
+    .hero-stats{flex-direction:column;gap:16px;max-width:none}
+    .hero-stats .stat b{font-size:1.6rem}
+    .cta-actions{flex-direction:column}
+    .cta-actions .btn{width:100%;justify-content:center}
+    .irow{flex-direction:column;gap:6px}
+    .irow .ik{flex-basis:auto}
+    .map-card{padding:24px}
+    .brand b{font-size:.95rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="#home" class="brand" aria-label="더프렙 홈">
+      <img src="images/logo-mark-white.png" class="mark-img" alt="THE PREP 로고" />
+      <span><b>THE PREP</b><span>더프렙</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#why">소개</a>
+      <a href="#system">관리 시스템</a>
+      <a href="#facilities">시설</a>
+      <a href="#info">이용 안내</a>
+      <a href="https://blog.naver.com/preplounge" target="_blank" rel="noopener">블로그</a>
+      <a href="https://theprep-student-management.vercel.app/" class="nav-portal">학습관리 시스템</a>
+      <a href="tel:051-501-7787" class="nav-cta">📞 전화 상담</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"><img src="images/seats-2.jpg" alt="더프렙 독서실 좌석 전경" /></div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow h-rise" style="transition-delay:.05s">PREMIUM · 관리형 스터디카페</p>
+    <h1 class="h-rise" style="transition-delay:.15s">당신의 공부가<br><span class="gd">완성</span>되는 공간</h1>
+    <p class="lead h-rise" style="transition-delay:.28s">
+      혼자서는 어려웠던 시간 관리, 흔들리는 집중력.
+      더프렙은 AI 학습관리 시스템과 전문 코디네이터가 함께
+      여러분의 학습 완성을 끝까지 책임집니다.
+    </p>
+    <div class="hero-actions h-rise" style="transition-delay:.4s">
+      <a href="tel:051-501-7787" class="btn btn-gold">📞 상담 문의하기</a>
+      <a href="#facilities" class="btn btn-ghost">공간 둘러보기</a>
+    </div>
+    <div class="hero-stats h-rise" style="transition-delay:.52s">
+      <div class="stat"><b><span class="count" data-count="105">0</span>석</b><span>프리미엄 개인 좌석</span></div>
+      <div class="stat"><b>08–01시</b><span>매일 17시간 운영</span></div>
+      <div class="stat"><b>실시간</b><span>학부모 학습 확인</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="wrap why-grid">
+    <div class="why-copy reveal">
+      <p class="eyebrow">WHY THE PREP</p>
+      <h2 class="section-title">'관리가 필요한 학생'이 아니라,<br><span class="accent">가능성을 증명할 학생</span>을 위해</h2>
+      <p>학생들이 스스로 공부하려 할 때 가장 먼저 부딪히는 벽은 의지의 부족이 아니라, <strong>혼자서는 지키기 어려운 시간 관리와 학습 흐름 유지</strong>였습니다.</p>
+      <p>막힌 질문 하나가 진도를 멈추게 하고, 함께 공부하는 이들이 주는 집중의 에너지도 누리기 어려웠습니다. 더프렙은 능력을 제대로 펼칠 <strong>환경을 만나지 못한 학생들을 위해</strong> 만들어졌습니다.</p>
+      <p>하루를 완성하는 1시간의 순공, 그 작은 몰입이 차곡히 쌓이도록 곁에서 이끌고, 끝까지 함께 확인합니다. <strong>학생이 자신의 가능성을 스스로 증명하는 곳</strong>, 그것이 더프렙입니다.</p>
+    </div>
+    <div class="why-visual reveal">
+      <img src="images/reception.jpg" alt="더프렙 프런트 데스크" />
+      <div class="badge"><b>THE PREP</b><span>프리미엄 관리형 학습센터</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM -->
+<section class="system" id="system">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">MANAGEMENT SYSTEM</p>
+      <h2 class="section-title">단순한 독서실이 아닙니다.<br><span class="accent">관리되는 공부</span>를 합니다.</h2>
+      <p>더프렙의 자체 학습관리 시스템이 등원부터 하원까지, 학생의 하루를 데이터로 관리합니다.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>실시간 등·하원 확인</h3>
+        <p>좌석 태블릿 체크인으로 등원·하원이 자동 기록되고, 학부모님께 실시간으로 전달됩니다.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>과목별 학습 타이머</h3>
+        <p>순공 시간을 과목별로 측정하고, 오늘·이번 주 집중 순위로 스스로 학습량을 점검합니다.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>전담 순찰 관리</h3>
+        <p>코디네이터가 정기 순찰로 집중도를 점검하고, 졸음·딴짓·자리비움을 즉시 케어합니다.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>학부모 전용 대시보드</h3>
+        <p>자녀의 출결, 현재 상태, 공부 시간, 일정을 모바일에서 언제든 안심하고 확인하세요.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></div>
+        <h3>상담·생활 관리</h3>
+        <p>상담 기록과 상·벌점 생활관리로 학습 태도까지 함께 잡아, 흔들리지 않는 루틴을 만듭니다.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+        <h3>관리되는 휴식, 파워냅</h3>
+        <p>정해진 시간의 파워냅으로 컨디션을 관리합니다. 쉬는 것까지 학습의 일부로 설계합니다.</p>
+      </div>
+    </div>
+    <div class="sys-cta reveal" style="text-align:center;margin-top:52px">
+      <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
+        <a href="system.html" class="btn btn-gold">관리 시스템 자세히 보기 →</a>
+        <a href="https://theprep-student-management.vercel.app/" class="btn btn-ghost">학습관리 시스템 로그인</a>
+      </div>
+      <p style="color:rgba(255,255,255,.5);font-size:.86rem;margin-top:18px">로그인 페이지는 학부모 · 학생 · 선생님 전용입니다</p>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="fac" id="facilities">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">OUR SPACE</p>
+      <h2 class="section-title">집중을 위해 설계된 <span class="accent">프리미엄 공간</span></h2>
+      <p>넓은 개인 좌석부터 무인 매점까지, 공부에만 몰입할 수 있도록 모든 것을 갖췄습니다.</p>
+    </div>
+    <div class="gallery reveal">
+      <div class="gtile wide tall"><img src="images/seats-1.jpg" alt="개인 독서실 좌석"><div class="cap">넓은 칸막이 개인 좌석</div></div>
+      <div class="gtile"><img src="images/standing.jpg" alt="스탠딩 책상존"><div class="cap">스탠딩 책상존</div></div>
+      <div class="gtile"><img src="images/snack.jpg" alt="무인 매점"><div class="cap">무인 매점 · 간식/음료</div></div>
+      <div class="gtile wide"><img src="images/seats-3.jpg" alt="독서실 좌석 공간"><div class="cap">쾌적한 학습 공간</div></div>
+      <div class="gtile"><img src="images/locker.jpg" alt="휴대폰 보관함"><div class="cap">휴대폰 보관함</div></div>
+      <div class="gtile"><img src="images/amenity.jpg" alt="프린터·정수기 편의시설"><div class="cap">프린터 · 정수기</div></div>
+      <div class="gtile"><img src="images/seats-4.jpg" alt="개인 학습 좌석"><div class="cap">독립형 학습 좌석</div></div>
+      <div class="gtile"><img src="images/exterior.jpg" alt="더프렙 외관"><div class="cap">사직동 더프렙</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="info" id="info">
+  <div class="wrap">
+    <div class="head reveal" style="margin-bottom:48px">
+      <p class="eyebrow">INFORMATION</p>
+      <h2 class="section-title">이용 안내</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-list reveal">
+        <div class="irow">
+          <div class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>이용 대상</div>
+          <div class="iv">중·고등학생 ~ 재수생<small>독학 재수 및 내신·수능 대비 학생을 위한 관리형 공간</small></div>
+        </div>
+        <div class="irow">
+          <div class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>운영 시간</div>
+          <div class="iv">매일 오전 8시 ~ 다음 날 오전 1시<small>하루 17시간, 충분한 학습 시간을 보장합니다</small></div>
+        </div>
+        <div class="irow">
+          <div class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>이용 요금</div>
+          <div class="iv">상담 문의<small>학기 중·방학 과정에 따라 안내해 드립니다</small></div>
+        </div>
+        <div class="irow">
+          <div class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>위치</div>
+          <div class="iv">부산광역시 동래구 사직로70번길 56, 3층 301호<small>지하철 사직역 인근 · 학원가 밀집 지역</small></div>
+        </div>
+      </div>
+      <div class="map-card reveal">
+        <h3>오시는 길</h3>
+        <p class="addr">부산 동래구 사직로70번길 56, 3층 301호</p>
+        <div class="map-embed">
+          <iframe src="https://maps.google.com/maps?q=%EB%B6%80%EC%82%B0%20%EB%8F%99%EB%9E%98%EA%B5%AC%20%EC%82%AC%EC%A7%81%EB%A1%9C70%EB%B2%88%EA%B8%B8%2056&t=&z=16&ie=UTF8&iwloc=&output=embed" title="더프렙 위치 지도" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta" id="contact">
+  <div class="wrap cta-inner reveal">
+    <p class="eyebrow" style="display:inline-block">CONTACT</p>
+    <h2 class="section-title">지금, 학습 완성의 첫 걸음을<br>더프렙과 함께 시작하세요</h2>
+    <p>방문 상담을 통해 우리 아이에게 맞는 학습 환경을 확인해 보세요.</p>
+    <div class="phone-big"><span>상담 및 등록 문의</span>051-501-7787</div>
+    <div class="cta-actions">
+      <a href="tel:051-501-7787" class="btn btn-gold">📞 전화 상담</a>
+      <a href="https://blog.naver.com/preplounge" target="_blank" rel="noopener" class="btn btn-ghost">블로그 둘러보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#home" class="brand"><img src="images/logo-mark-white.png" class="mark-img" alt="THE PREP 로고" /><span><b>THE PREP</b><span>더프렙</span></span></a>
+      <div class="foot-info">
+        프리미엄 관리형 스터디카페<br>
+        부산광역시 동래구 사직로70번길 56, 3층 301호<br>
+        대표전화 <a href="tel:051-501-7787">051-501-7787</a> · 매일 08:00–01:00<br>
+        <a href="https://blog.naver.com/preplounge" target="_blank" rel="noopener">네이버 블로그 @preplounge</a>
+      </div>
+    </div>
+    <div class="foot-copy">© 2026 THE PREP. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox"><button class="close" id="lbClose" aria-label="닫기">&times;</button><img id="lbImg" src="" alt="" /></div>
+
+<script>
+  // mobile menu
+  const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');
+  menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+  // header scroll response
+  const hdr=document.querySelector('header');
+  const onScroll=()=>hdr.classList.toggle('scrolled',window.scrollY>30);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // hero entrance
+  requestAnimationFrame(()=>document.querySelector('.hero').classList.add('ready'));
+
+  // staggered reveal
+  document.querySelectorAll('.reveal').forEach(el=>{
+    const sibs=[...el.parentElement.children].filter(c=>c.classList.contains('reveal'));
+    const i=sibs.indexOf(el);
+    if(i>0)el.style.transitionDelay=(i*0.09)+'s';
+  });
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // count-up
+  const easeOut=t=>1-Math.pow(1-t,3);
+  function countUp(el){const target=+el.dataset.count,dur=1400,t0=performance.now();
+    (function tick(now){const p=Math.min((now-t0)/dur,1);el.textContent=Math.round(easeOut(p)*target);if(p<1)requestAnimationFrame(tick);else el.textContent=target;})(t0);}
+  const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target);}})},{threshold:.5});
+  document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+
+  // lightbox
+  const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbClose=document.getElementById('lbClose');
+  document.querySelectorAll('.gtile img').forEach(img=>img.addEventListener('click',()=>{lbImg.src=img.src;lbImg.alt=img.alt;lb.classList.add('open');}));
+  function closeLb(){lb.classList.remove('open');}
+  lbClose.addEventListener('click',closeLb);
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+</script>
+</body>
+</html>
